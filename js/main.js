@@ -59,33 +59,60 @@
     });
   }
 
-  /* Pontos dos carrosséis (serviços e avaliações no mobile) */
+  /* Carrosséis: indicadores e setas (serviços e avaliações) */
   document.querySelectorAll('[data-dots-for]').forEach(function (dots) {
-    var track = document.querySelector(dots.getAttribute('data-dots-for'));
+    var sel = dots.getAttribute('data-dots-for');
+    var track = document.querySelector(sel);
     if (!track) return;
-    var slides = Array.prototype.slice.call(track.children);
+    var prev = document.querySelector('[data-carousel-prev="' + sel + '"]');
+    var next = document.querySelector('[data-carousel-next="' + sel + '"]');
 
-    slides.forEach(function (slide, i) {
-      var dot = document.createElement('button');
-      dot.type = 'button';
-      dot.tabIndex = -1;
-      dot.addEventListener('click', function () {
-        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).scrollPaddingLeft || 0), behavior: 'smooth' });
-      });
-      dots.appendChild(dot);
-    });
+    /* distância entre um card e o próximo */
+    var step = function () {
+      var s = track.children;
+      return s.length > 1 ? s[1].offsetLeft - s[0].offsetLeft : track.clientWidth;
+    };
+    var pages = function () {
+      return Math.max(1, Math.round((track.scrollWidth - track.clientWidth) / step()) + 1);
+    };
+    var current = function () {
+      return Math.round(track.scrollLeft / step());
+    };
+    var goTo = function (i) {
+      track.scrollTo({ left: i * step(), behavior: 'smooth' });
+    };
 
+    var build = function () {
+      dots.innerHTML = '';
+      for (var i = 0; i < pages(); i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.tabIndex = -1;
+        dot.addEventListener('click', goTo.bind(null, i));
+        dots.appendChild(dot);
+      }
+      update();
+    };
     var update = function () {
-      var max = track.scrollWidth - track.clientWidth;
-      var idx = max > 0
-        ? Math.round((track.scrollLeft / max) * (slides.length - 1))
-        : 0;
+      var idx = current();
+      var total = pages();
       Array.prototype.forEach.call(dots.children, function (d, i) {
         d.classList.toggle('is-active', i === idx);
       });
+      if (prev) prev.disabled = idx <= 0;
+      if (next) next.disabled = idx >= total - 1;
     };
+
+    if (prev) prev.addEventListener('click', function () { goTo(current() - 1); });
+    if (next) next.addEventListener('click', function () { goTo(current() + 1); });
     track.addEventListener('scroll', update, { passive: true });
-    update();
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(build, 150);
+    });
+    build();
   });
 
   /* Header com borda após rolar */
