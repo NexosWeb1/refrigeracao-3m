@@ -24,6 +24,15 @@
     });
   });
 
+  /* Logo volta ao topo sem deixar #topo na URL */
+  document.querySelectorAll('a[href="#topo"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+
   /* Header com borda após rolar */
   var header = document.querySelector('.header');
   var onScroll = function () {
