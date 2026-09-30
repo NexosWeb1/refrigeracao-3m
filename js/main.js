@@ -33,6 +33,61 @@
     });
   });
 
+  /* Menu mobile */
+  var body = document.body;
+  var toggle = document.querySelector('.menu-toggle');
+  var setMenu = function (open) {
+    body.classList.toggle('is-menu-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      setMenu(!body.classList.contains('is-menu-open'));
+    });
+    document.querySelectorAll('.mobile-menu a, .menu-backdrop').forEach(function (el) {
+      el.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && body.classList.contains('is-menu-open')) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    window.matchMedia('(min-width: 900px)').addEventListener('change', function (e) {
+      if (e.matches) setMenu(false);
+    });
+  }
+
+  /* Pontos dos carrosséis (serviços e avaliações no mobile) */
+  document.querySelectorAll('[data-dots-for]').forEach(function (dots) {
+    var track = document.querySelector(dots.getAttribute('data-dots-for'));
+    if (!track) return;
+    var slides = Array.prototype.slice.call(track.children);
+
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.tabIndex = -1;
+      dot.addEventListener('click', function () {
+        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).scrollPaddingLeft || 0), behavior: 'smooth' });
+      });
+      dots.appendChild(dot);
+    });
+
+    var update = function () {
+      var max = track.scrollWidth - track.clientWidth;
+      var idx = max > 0
+        ? Math.round((track.scrollLeft / max) * (slides.length - 1))
+        : 0;
+      Array.prototype.forEach.call(dots.children, function (d, i) {
+        d.classList.toggle('is-active', i === idx);
+      });
+    };
+    track.addEventListener('scroll', update, { passive: true });
+    update();
+  });
+
   /* Header com borda após rolar */
   var header = document.querySelector('.header');
   var onScroll = function () {

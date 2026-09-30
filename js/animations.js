@@ -16,6 +16,7 @@
   mm.add('(prefers-reduced-motion: no-preference)', function () {
 
     /* ---------- Hero: entrada ---------- */
+    var isDesktop = window.matchMedia('(min-width: 1024px)').matches;
     var tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } });
 
     tl.from('.header', { yPercent: -100, duration: 0.7 }, 0)
@@ -24,16 +25,15 @@
         { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 1.2, ease: 'expo.out', clearProps: 'clipPath' }, 0)
       .fromTo('.hero__tags li', { y: 14 }, { opacity: 1, y: 0, stagger: 0.08 }, 0.3)
       .fromTo('.hero__photo--left',
-        { x: -70, rotate: -5 },
-        { opacity: 1, x: 0, rotate: 0, duration: 1.3, ease: 'expo.out' }, 0.45)
+        isDesktop ? { x: -70, rotate: -5 } : { y: 40, scale: 0.96 },
+        { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, duration: 1.3, ease: 'expo.out' }, 0.45)
       .fromTo('.hero__photo--right',
         { x: 70, rotate: 5 },
         { opacity: 1, x: 0, rotate: 0, duration: 1.3, ease: 'expo.out' }, 0.55)
       .fromTo('.hero__subtitle', { y: 18 }, { opacity: 1, y: 0 }, 0.85)
       .fromTo('.hero__ctas .btn', { y: 18, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, stagger: 0.1, ease: 'back.out(1.7)' }, 1)
       .fromTo('.hero__support', { y: 10 }, { opacity: 1, y: 0 }, 1.15)
-      .fromTo('.benefits__item', { y: 24 }, { opacity: 1, y: 0, stagger: 0.08 }, 1.15)
-      .from('.wa-float', { scale: 0, autoAlpha: 0, duration: 0.7, ease: 'back.out(2.2)' }, 1.5);
+      .fromTo('.benefits__item', { y: 24 }, { opacity: 1, y: 0, stagger: 0.08 }, 1.15);
 
     SplitText.create('.hero__title', {
       type: 'lines, words',
@@ -47,8 +47,8 @@
       }
     });
 
-    /* Parallax leve nas fotos do hero */
-    gsap.utils.toArray('.hero__photo img').forEach(function (img, i) {
+    /* Parallax leve nas fotos do hero (desktop) */
+    if (isDesktop) gsap.utils.toArray('.hero__photo img').forEach(function (img, i) {
       gsap.fromTo(img, { yPercent: -4, scale: 1.12 }, {
         yPercent: i ? 8 : 5, ease: 'none',
         scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
@@ -90,13 +90,13 @@
         scrollTrigger: { trigger: trigger, start: 'top 85%', once: true }
       }, vars || {}));
     };
-    staggerIn('.checklist li', '.checklist', { x: -18, y: 0 });
+    staggerIn('.checklist li', '.checklist');
     staggerIn('.cities li', '.cities', { scale: 0.8, y: 10, ease: 'back.out(2)' });
-    staggerIn('.hours__list li', '.hours', { x: 16, y: 0 });
+    staggerIn('.hours__list li', '.hours');
     staggerIn('.faq__item', '.faq__list');
     gsap.utils.toArray('.segment').forEach(function (seg) {
       gsap.from(seg.querySelectorAll('.segment__list li'), {
-        autoAlpha: 0, x: -16, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+        autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.08, ease: 'power2.out',
         scrollTrigger: { trigger: seg, start: 'top 75%', once: true }
       });
     });
@@ -140,9 +140,7 @@
       });
     });
 
-    /* ---------- Elementos flutuando ---------- */
-    gsap.to('.about__badge', { y: -12, duration: 2.4, ease: 'sine.inOut', repeat: -1, yoyo: true });
-    gsap.to('.steps__media-tag', { y: -8, duration: 2, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: 0.5 });
+    /* ---------- Floco girando no card de destaque ---------- */
     gsap.to('.service-card__snow', { rotate: 360, duration: 18, ease: 'none', repeat: -1 });
 
     /* ---------- Faixa: velocidade reage ao scroll ---------- */
@@ -166,6 +164,7 @@
     ScrollTrigger.create({
       start: 'top -200',
       onUpdate: function (self) {
+        if (document.body.classList.contains('is-menu-open')) return;
         header.classList.toggle('is-hidden', self.direction === 1);
       },
       onLeaveBack: function () { header.classList.remove('is-hidden'); }

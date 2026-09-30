@@ -105,9 +105,33 @@
           <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
           <span>WhatsApp</span>
         </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
+
+    <div class="mobile-menu" id="menu-mobile">
+      <nav class="mobile-menu__nav" aria-label="Menu">
+        <a href="#servicos">Serviços<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#como-funciona">Como funciona<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#avaliacoes">Avaliações<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#atendimento">Área de atendimento<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </nav>
+      <div class="mobile-menu__ctas">
+        <a href="https://wa.me/5531990612268" class="btn btn--primary btn--block js-wa" data-track="whatsapp" data-msg="Olá! Gostaria de solicitar um orçamento." target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          Solicitar orçamento
+        </a>
+        <a href="tel:+5531990612268" class="btn btn--outline btn--block" data-track="phone">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+          (31) 99061-2268
+        </a>
+      </div>
+      <p class="mobile-menu__hours"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Seg a sáb, 07h às 20h</p>
+    </div>
   </header>
+  <div class="menu-backdrop" aria-hidden="true"></div>
 
   <main id="conteudo">
 
@@ -338,6 +362,7 @@
             </div>
           </article>
         </div>
+        <div class="carousel-dots" data-dots-for=".services__grid" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -515,6 +540,7 @@
             </figcaption>
           </figure>
         </div>
+        <div class="carousel-dots carousel-dots--reviews" data-dots-for=".reviews__track" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -649,11 +675,6 @@
     </div>
   </footer>
 
-  <!-- WhatsApp flutuante -->
-  <a href="https://wa.me/5531990612268" class="wa-float js-wa" data-track="whatsapp" data-msg="Olá! Gostaria de solicitar um orçamento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-    <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-    <span class="wa-float__label">Orçamento no WhatsApp</span>
-  </a>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
