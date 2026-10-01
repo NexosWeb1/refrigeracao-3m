@@ -25,11 +25,11 @@
         { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 1.2, ease: 'expo.out', clearProps: 'clipPath' }, 0)
       .fromTo('.hero__tags li', { y: 14 }, { opacity: 1, y: 0, stagger: 0.08 }, 0.3)
       .fromTo('.hero__photo--left',
-        isDesktop ? { x: -70, rotate: -5 } : { y: 40, scale: 0.96 },
-        { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, duration: 1.3, ease: 'expo.out' }, 0.45)
+        isDesktop ? { x: -90 } : { y: 40, scale: 0.96 },
+        { opacity: 1, x: 0, y: 0, scale: 1, duration: 1.3, ease: 'expo.out' }, 0.45)
       .fromTo('.hero__photo--right',
-        { x: 70, rotate: 5 },
-        { opacity: 1, x: 0, rotate: 0, duration: 1.3, ease: 'expo.out' }, 0.55)
+        { x: 90 },
+        { opacity: 1, x: 0, duration: 1.3, ease: 'expo.out' }, 0.55)
       .fromTo('.hero__subtitle', { y: 18 }, { opacity: 1, y: 0 }, 0.85)
       .fromTo('.hero__ctas .btn', { y: 18, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, stagger: 0.1, ease: 'back.out(1.7)' }, 1)
       .fromTo('.hero__support', { y: 10 }, { opacity: 1, y: 0 }, 1.15)

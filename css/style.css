@@ -725,16 +725,49 @@ figure, blockquote { margin: 0; }
 @media (min-width: 1024px) {
   .services__grid { grid-auto-columns: calc((100% - 48px) / 3); gap: 24px; }
 
-  .hero { padding-top: 16px; }
-  .hero__panel { padding: 48px 40px 28px; }
-  .hero__grid { grid-template-columns: 1fr 2.3fr 1fr; align-items: end; gap: 36px; }
-  .hero__content { order: 2; padding-block: 24px 36px; align-self: center; }
-  .hero__photo { aspect-ratio: 3 / 4; border-radius: 22px; }
-  .hero__photo--left { order: 1; }
-  .hero__photo--right { display: block; order: 3; }
-  .hero__photo--left, .hero__photo--right { transform: translateY(8px); }
+  /* Hero largo: fotos encostadas nas laterais, conteúdo e faixa no centro */
+  .hero { padding-top: 12px; }
+  .hero__wrap { max-width: 1720px; padding-inline: 16px; }
+  .hero__panel {
+    display: flex; flex-direction: column; justify-content: center;
+    min-height: clamp(640px, calc(100vh - var(--header-h) - 24px), 840px);
+    padding: 64px 0 28px;
+  }
+  .hero__grid { display: block; position: static; }
+  .hero__photo {
+    position: absolute; top: 0; bottom: 0; z-index: 0;
+    width: 31%; aspect-ratio: auto; border-radius: 0; background: none;
+  }
+  .hero__photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(11, 37, 83, .85), transparent 45%);
+  }
+  .hero__photo--left {
+    left: 0;
+    -webkit-mask-image: linear-gradient(90deg, #000 40%, transparent 97%);
+            mask-image: linear-gradient(90deg, #000 40%, transparent 97%);
+  }
+  .hero__photo--right {
+    display: block; right: 0;
+    -webkit-mask-image: linear-gradient(270deg, #000 40%, transparent 97%);
+            mask-image: linear-gradient(270deg, #000 40%, transparent 97%);
+  }
+  .hero__photo--left img { object-position: center 15%; }
+  .hero__photo--right img { object-position: 40% 30%; }
+
+  .hero__content {
+    position: relative; z-index: 2;
+    max-width: 680px; margin-inline: auto; padding-inline: 24px;
+  }
   .hero__ctas { justify-content: center; }
-  .benefits { margin-top: 32px; }
+
+  .benefits {
+    position: relative; z-index: 2;
+    width: min(940px, calc(100% - 64px)); margin: 44px auto 0; padding: 10px;
+    border: 1px solid rgba(255, 255, 255, .12); border-radius: 18px;
+    background: rgba(8, 27, 63, .7);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  }
   .benefits__item { flex-direction: row; text-align: left; justify-content: center; font-size: 14px; }
 }
 
