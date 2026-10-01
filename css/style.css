@@ -281,7 +281,7 @@ figure, blockquote { margin: 0; }
 .hero__photo { border-radius: 20px; overflow: hidden; background: var(--navy-700); }
 .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
 .hero__photo--left { order: 2; aspect-ratio: 4 / 3; }
-.hero__photo--left img { object-position: center 20%; }
+.hero__photo--left img { object-position: center 15%; }
 .hero__photo--right { display: none; }
 
 /* Faixa de benefícios */
@@ -429,7 +429,7 @@ figure, blockquote { margin: 0; }
 .steps__grid { display: grid; gap: 44px; align-items: center; }
 
 .steps__media { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4 / 3; }
-.steps__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.steps__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
 .steps__media-tag {
   position: absolute; left: 16px; bottom: 16px;
   display: inline-flex; align-items: center; gap: 8px;
@@ -621,7 +621,6 @@ figure, blockquote { margin: 0; }
   font-size: clamp(18px, 3vw, 24px); font-weight: 800; letter-spacing: -.01em;
   color: var(--ink); white-space: nowrap;
 }
-.marquee__item:nth-child(even) { color: transparent; -webkit-text-stroke: 1.2px var(--steel-400); }
 .marquee__item .icon { width: 22px; height: 22px; color: var(--blue-500); animation: spin 8s linear infinite; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -779,8 +778,8 @@ figure, blockquote { margin: 0; }
   }
   .hero__photo--left { left: 12px; }
   .hero__photo--right { display: block; right: 12px; }
-  .hero__photo--left img { object-position: 60% center; }
-  .hero__photo--right img { object-position: 45% center; }
+  .hero__photo--left img { object-position: 45% center; }
+  .hero__photo--right img { object-position: 55% center; }
 
   .hero__content {
     position: relative; z-index: 2;
