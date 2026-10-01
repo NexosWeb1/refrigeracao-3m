@@ -49,14 +49,6 @@
       }
     });
 
-    /* Parallax leve nas fotos do hero (desktop) */
-    if (isDesktop) gsap.utils.toArray('.hero__photo img').forEach(function (img, i) {
-      gsap.fromTo(img, { yPercent: -4, scale: 1.12 }, {
-        yPercent: i ? 8 : 5, ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-      });
-    });
-
     /* ---------- Títulos das seções: palavras sobem ---------- */
     gsap.utils.toArray('.section-title').forEach(function (title) {
       SplitText.create(title, {
@@ -122,8 +114,8 @@
     });
 
     gsap.utils.toArray('.about__shape img, .steps__media img, .cta__media img, .segment__media img, .service-card__media img').forEach(function (img) {
-      gsap.fromTo(img, { yPercent: -6, scale: 1.14 }, {
-        yPercent: 6, ease: 'none',
+      gsap.fromTo(img, { yPercent: -3, scale: 1.07 }, {
+        yPercent: 3, ease: 'none',
         scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
       });
     });

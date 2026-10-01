@@ -292,7 +292,7 @@ a.service-card__cta.js-wa:hover { background: var(--wa-dark); border-color: var(
 .hero__photo { border-radius: 20px; overflow: hidden; background: var(--navy-700); }
 .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
 .hero__photo--left { order: 2; aspect-ratio: 4 / 3; }
-.hero__photo--left img { object-position: center 15%; }
+.hero__photo--left img { object-position: 60% center; }
 .hero__photo--right { display: none; }
 
 /* Faixa de benefícios */
@@ -765,7 +765,7 @@ a.service-card__cta.js-wa:hover { background: var(--wa-dark); border-color: var(
   .hero__wrap { max-width: none; padding-inline: 0; }
   .hero__panel {
     --side: 48px;       /* quanto o centro desce além das laterais */
-    --photo-w: 22%;
+    --photo-w: 25%;
     display: flex; flex-direction: column;
     min-height: clamp(660px, 96vh, 860px);
     padding: calc(var(--header-h) + 40px) 0 0;
@@ -789,8 +789,8 @@ a.service-card__cta.js-wa:hover { background: var(--wa-dark); border-color: var(
   }
   .hero__photo--left { left: 12px; }
   .hero__photo--right { display: block; right: 12px; }
-  .hero__photo--left img { object-position: 45% center; }
-  .hero__photo--right img { object-position: 55% center; }
+  .hero__photo--left img { object-position: 64% center; }
+  .hero__photo--right img { object-position: 36% center; }
 
   .hero__content {
     position: relative; z-index: 2;
@@ -819,7 +819,9 @@ a.service-card__cta.js-wa:hover { background: var(--wa-dark); border-color: var(
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .hero__panel { --photo-w: 21%; }
+  .hero__panel { --photo-w: 23%; }
+  .hero__title { font-size: 44px; }
+  .hero__content { max-width: 640px; }
   .benefits { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 14px 40px; }
   .benefits__item { flex-basis: auto; }
 }
