@@ -24,6 +24,7 @@
   --white:    #FFFFFF;
 
   --wa: #25D366;
+  --wa-dark: #1EBE5A;
 
   --radius-sm: 10px;
   --radius:    16px;
@@ -132,6 +133,16 @@ figure, blockquote { margin: 0; }
 
 .btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .35); }
 .btn--ghost-light:hover { border-color: #fff; background: rgba(255, 255, 255, .08); }
+
+/* Botões de contato pelo WhatsApp: verde padrão do WhatsApp */
+a.btn.js-wa,
+a.service-card__cta.js-wa {
+  background: var(--wa); border-color: var(--wa); color: #fff;
+  box-shadow: 0 8px 20px -8px rgba(37, 211, 102, .6);
+}
+a.btn.js-wa:hover,
+a.service-card__cta.js-wa:hover { background: var(--wa-dark); border-color: var(--wa-dark); color: #fff; }
+.callout.js-wa .callout__icon { background: var(--wa); }
 
 /* ---------- Header ---------- */
 .header {
@@ -266,7 +277,7 @@ figure, blockquote { margin: 0; }
 .hero__ctas .btn--primary:hover { background: #1a82e0; }
 .hero__ctas .btn--primary .icon {
   box-sizing: border-box; width: 40px; height: 40px; padding: 9px;
-  border-radius: 50%; background: #fff; color: var(--blue-600);
+  border-radius: 50%; background: #fff; color: var(--wa-dark);
 }
 .hero__ctas .btn--primary:hover .icon { transform: rotate(-12deg); }
 
