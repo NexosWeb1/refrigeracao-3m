@@ -21,15 +21,17 @@
 
     tl.from('.header', { yPercent: -100, duration: 0.7 }, 0)
       .fromTo('.hero__panel',
-        { clipPath: 'inset(5% 3% 5% 3% round 28px)' },
-        { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 1.2, ease: 'expo.out', clearProps: 'clipPath' }, 0)
+        isDesktop ? { opacity: 0 } : { clipPath: 'inset(5% 3% 5% 3% round 28px)' },
+        isDesktop
+          ? { opacity: 1, duration: 0.8, ease: 'power2.out', clearProps: 'opacity' }
+          : { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 1.2, ease: 'expo.out', clearProps: 'clipPath' }, 0)
       .fromTo('.hero__tags li', { y: 14 }, { opacity: 1, y: 0, stagger: 0.08 }, 0.3)
       .fromTo('.hero__photo--left',
-        isDesktop ? { x: -90 } : { y: 40, scale: 0.96 },
+        isDesktop ? { x: -60, scale: 0.96 } : { y: 40, scale: 0.96 },
         { opacity: 1, x: 0, y: 0, scale: 1, duration: 1.3, ease: 'expo.out' }, 0.45)
       .fromTo('.hero__photo--right',
-        { x: 90 },
-        { opacity: 1, x: 0, duration: 1.3, ease: 'expo.out' }, 0.55)
+        { x: 60, scale: 0.96 },
+        { opacity: 1, x: 0, scale: 1, duration: 1.3, ease: 'expo.out' }, 0.55)
       .fromTo('.hero__subtitle', { y: 18 }, { opacity: 1, y: 0 }, 0.85)
       .fromTo('.hero__ctas .btn', { y: 18, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, stagger: 0.1, ease: 'back.out(1.7)' }, 1)
       .fromTo('.hero__support', { y: 10 }, { opacity: 1, y: 0 }, 1.15)
