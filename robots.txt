@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
+Sitemap: https://refrigeracao3m.com.br/sitemap.xml

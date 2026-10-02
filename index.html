@@ -6,13 +6,24 @@
   <title>Conserto de Geladeira, Freezer, Frigobar, Câmara Fria e Adega | Refrigeração 3M</title>
   <meta name="description" content="Assistência técnica em refrigeração em Betim, Contagem, Ibirité, Igarapé e Brumadinho. Conserto de geladeira, freezer, frigobar, câmara fria e adega. Orçamento pelo WhatsApp.">
   <meta name="theme-color" content="#0B2553">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://refrigeracao3m.com.br/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Refrigeração 3M">
+  <meta property="og:url" content="https://refrigeracao3m.com.br/">
   <meta property="og:title" content="Refrigeração 3M | Conserto de Geladeira, Freezer e Refrigeração Comercial">
   <meta property="og:description" content="Assistência técnica especializada em refrigeração residencial e comercial na Região Metropolitana de BH. Orçamento pelo WhatsApp.">
-  <meta property="og:image" content="img/og-image.jpg">
+  <meta property="og:image" content="https://refrigeracao3m.com.br/img/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo da Refrigeração 3M">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Refrigeração 3M | Conserto de Geladeira, Freezer e Refrigeração Comercial">
+  <meta name="twitter:description" content="Assistência técnica especializada em refrigeração residencial e comercial na Região Metropolitana de BH. Orçamento pelo WhatsApp.">
+  <meta name="twitter:image" content="https://refrigeracao3m.com.br/img/og-image.jpg">
 
   <link rel="icon" href="img/favicon.ico" sizes="any">
   <link rel="icon" href="img/favicon.png" type="image/png">
@@ -20,9 +31,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="img/hero-compressor-reparo.webp" fetchpriority="high">
+  <!-- elemento de LCP: foto principal do hero -->
+  <link rel="preload" as="image" href="img/hero-compressor-reparo.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="css/style.css">
   <script>
     document.documentElement.classList.add('js');
@@ -33,31 +46,91 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HVACBusiness",
-    "name": "Refrigeração 3M",
-    "description": "Assistência técnica em refrigeração residencial e comercial: conserto de geladeira, freezer, frigobar, câmara fria e adega.",
-    "image": "img/logo.webp",
-    "logo": "img/logo.webp",
-    "telephone": "+55-31-99061-2268",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "MG",
-      "addressCountry": "BR"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Betim" },
-      { "@type": "City", "name": "Contagem" },
-      { "@type": "City", "name": "Ibirité" },
-      { "@type": "City", "name": "Igarapé" },
-      { "@type": "City", "name": "Brumadinho" }
-    ],
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "07:00",
-      "closes": "20:00"
-    }]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://refrigeracao3m.com.br/#website",
+        "url": "https://refrigeracao3m.com.br/",
+        "name": "Refrigeração 3M",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://refrigeracao3m.com.br/#organizacao" }
+      },
+      {
+        "@type": ["Organization", "HVACBusiness"],
+        "@id": "https://refrigeracao3m.com.br/#organizacao",
+        "name": "Refrigeração 3M",
+        "url": "https://refrigeracao3m.com.br/",
+        "description": "Assistência técnica em refrigeração residencial e comercial: conserto de geladeira, freezer, frigobar, câmara fria e adega.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://refrigeracao3m.com.br/img/logo.png",
+          "width": 520,
+          "height": 407
+        },
+        "image": "https://refrigeracao3m.com.br/img/og-image.jpg",
+        "telephone": "+55-31-99061-2268",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+55-31-99061-2268",
+          "contactType": "customer service",
+          "areaServed": "BR",
+          "availableLanguage": "Portuguese"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Betim" },
+          { "@type": "City", "name": "Contagem" },
+          { "@type": "City", "name": "Ibirité" },
+          { "@type": "City", "name": "Igarapé" },
+          { "@type": "City", "name": "Brumadinho" }
+        ],
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "07:00",
+          "closes": "20:00"
+        }],
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de Geladeira" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de Freezer" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de Frigobar" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de Câmara Fria" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de Adega" } }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://refrigeracao3m.com.br/#webpage",
+        "url": "https://refrigeracao3m.com.br/",
+        "name": "Conserto de Geladeira, Freezer, Frigobar, Câmara Fria e Adega | Refrigeração 3M",
+        "description": "Assistência técnica em refrigeração em Betim, Contagem, Ibirité, Igarapé e Brumadinho. Conserto de geladeira, freezer, frigobar, câmara fria e adega. Orçamento pelo WhatsApp.",
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "https://refrigeracao3m.com.br/#website" },
+        "about": { "@id": "https://refrigeracao3m.com.br/#organizacao" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://refrigeracao3m.com.br/img/hero-compressor-reparo.webp",
+          "width": 768,
+          "height": 1376
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://refrigeracao3m.com.br/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Quais equipamentos vocês consertam?", "acceptedAnswer": { "@type": "Answer", "text": "Geladeiras, freezers, frigobares, câmaras frias e adegas, tanto residenciais quanto comerciais." } },
+          { "@type": "Question", "name": "O conserto é feito em domicílio?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. O atendimento é feito no local, na sua casa ou no seu estabelecimento." } },
+          { "@type": "Question", "name": "Vocês atendem todas as marcas?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. Nossos técnicos são especializados em equipamentos de refrigeração de todas as marcas." } },
+          { "@type": "Question", "name": "Quais cidades são atendidas?", "acceptedAnswer": { "@type": "Answer", "text": "Atendemos Betim, Contagem, Ibirité, Igarapé e Brumadinho, na Região Metropolitana de Belo Horizonte." } },
+          { "@type": "Question", "name": "Qual o horário de atendimento?", "acceptedAnswer": { "@type": "Answer", "text": "De segunda a sábado, das 07h às 20h." } },
+          { "@type": "Question", "name": "Como solicito um orçamento?", "acceptedAnswer": { "@type": "Answer", "text": "Pelo WhatsApp ou telefone (31) 99061-2268. Conte qual é o equipamento e o problema, e o técnico retorna com as orientações." } }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -86,8 +159,8 @@
   <header class="header">
     <div class="container header__inner">
       <a href="#topo" class="header__logo" aria-label="Refrigeração 3M, voltar ao topo">
-        <img class="logo-color" src="img/logo.webp" alt="Logo Refrigeração 3M" width="120" height="95">
-        <img class="logo-white" src="img/logo-white.webp" alt="" width="120" height="95" aria-hidden="true">
+        <img class="logo-color" src="img/logo.webp" alt="Logo Refrigeração 3M" width="520" height="407" decoding="async">
+        <img class="logo-white" src="img/logo-white.webp" alt="" width="520" height="407" decoding="async" aria-hidden="true">
       </a>
 
       <nav class="header__nav" aria-label="Navegação principal">
@@ -182,7 +255,7 @@
             </div>
 
             <figure class="hero__photo hero__photo--right">
-              <img src="img/hero-geladeira-manometro.webp" alt="Técnico com luvas fazendo reparo na parte traseira de uma geladeira, com manômetros e ferramentas" width="768" height="1376" loading="lazy">
+              <img src="img/hero-geladeira-manometro.webp" alt="Técnico com luvas fazendo reparo na parte traseira de uma geladeira, com manômetros e ferramentas" width="768" height="1376" decoding="async">
             </figure>
           </div>
 
@@ -262,7 +335,7 @@
 
         <div class="about__media reveal">
           <div class="about__shape">
-            <img src="img/tecnico-compressor-teste.webp" alt="Técnico testando componentes com multímetro, com compressores de refrigeração na bancada" width="800" height="1000" loading="lazy">
+            <img src="img/tecnico-compressor-teste.webp" alt="Técnico testando componentes com multímetro, com compressores de refrigeração na bancada" width="800" height="1000" loading="lazy" decoding="async">
           </div>
           <div class="about__badge">
             <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
@@ -284,7 +357,7 @@
         <div class="services__grid">
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="img/geladeira.webp" alt="Geladeira aberta com alimentos e bebidas" width="640" height="480" loading="lazy">
+              <img src="img/geladeira.webp" alt="Geladeira aberta com alimentos e bebidas" width="640" height="480" loading="lazy" decoding="async">
             </div>
             <div class="service-card__body">
               <h3>Conserto de Geladeira</h3>
@@ -298,7 +371,7 @@
 
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="img/freezer.webp" alt="Freezers horizontais comerciais com produtos congelados" width="640" height="480" loading="lazy">
+              <img src="img/freezer.webp" alt="Freezers horizontais comerciais com produtos congelados" width="640" height="480" loading="lazy" decoding="async">
             </div>
             <div class="service-card__body">
               <h3>Conserto de Freezer</h3>
@@ -312,7 +385,7 @@
 
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="img/frigobar.webp" alt="Frigobar branco em ambiente residencial" width="640" height="480" loading="lazy">
+              <img src="img/frigobar.webp" alt="Frigobar branco em ambiente residencial" width="640" height="480" loading="lazy" decoding="async">
             </div>
             <div class="service-card__body">
               <h3>Conserto de Frigobar</h3>
@@ -326,7 +399,7 @@
 
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="img/camara-fria.webp" alt="Interior de câmara fria comercial" width="640" height="480" loading="lazy">
+              <img src="img/camara-fria.webp" alt="Interior de câmara fria comercial" width="640" height="480" loading="lazy" decoding="async">
             </div>
             <div class="service-card__body">
               <h3>Conserto de Câmara Fria</h3>
@@ -340,7 +413,7 @@
 
           <article class="service-card reveal">
             <div class="service-card__media">
-              <img src="img/adega.webp" alt="Adega climatizada com garrafas de vinho" width="640" height="480" loading="lazy">
+              <img src="img/adega.webp" alt="Adega climatizada com garrafas de vinho" width="640" height="480" loading="lazy" decoding="async">
             </div>
             <div class="service-card__body">
               <h3>Conserto de Adega</h3>
@@ -380,7 +453,7 @@
     <section class="section steps" id="como-funciona" aria-labelledby="steps-title">
       <div class="container steps__grid">
         <div class="steps__media reveal">
-          <img src="img/tecnico-geladeira-traseira.webp" alt="Técnico consertando a parte traseira de uma geladeira" width="740" height="840" loading="lazy">
+          <img src="img/tecnico-geladeira-traseira.webp" alt="Técnico consertando a parte traseira de uma geladeira" width="740" height="840" loading="lazy" decoding="async">
           <div class="steps__media-tag">
             <svg class="icon" aria-hidden="true"><use href="#i-snow"/></svg>
             Atendimento no local
@@ -450,7 +523,7 @@
           <div class="segments__grid">
             <article class="segment reveal">
               <div class="segment__media">
-                <img src="img/residencial.webp" alt="Cozinha residencial com geladeira inox" width="900" height="600" loading="lazy">
+                <img src="img/residencial.webp" alt="Cozinha residencial com geladeira inox" width="900" height="600" loading="lazy" decoding="async">
               </div>
               <div class="segment__body">
                 <div class="segment__title">
@@ -472,7 +545,7 @@
 
             <article class="segment reveal">
               <div class="segment__media">
-                <img src="img/comercial.webp" alt="Expositores refrigerados de um estabelecimento comercial" width="900" height="600" loading="lazy">
+                <img src="img/comercial.webp" alt="Expositores refrigerados de um estabelecimento comercial" width="900" height="600" loading="lazy" decoding="async">
               </div>
               <div class="segment__body">
                 <div class="segment__title">
@@ -649,7 +722,7 @@
             </div>
           </div>
           <div class="cta__media">
-            <img src="img/tecnico-geladeira-casa.webp" alt="Técnico avaliando uma geladeira na cozinha do cliente, com a caixa de ferramentas ao lado" width="1040" height="853" loading="lazy">
+            <img src="img/tecnico-geladeira-casa.webp" alt="Técnico avaliando uma geladeira na cozinha do cliente, com a caixa de ferramentas ao lado" width="1040" height="853" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -660,7 +733,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="img/logo.webp" alt="Logo Refrigeração 3M" width="130" height="103" loading="lazy">
+        <img src="img/logo.webp" alt="Logo Refrigeração 3M" width="520" height="407" loading="lazy" decoding="async">
         <p>Refrigeração e Assistência Técnica</p>
       </div>
 
